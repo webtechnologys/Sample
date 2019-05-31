@@ -1,0 +1,50 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="stylesheets/syed.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+    <form action="/signup" method="post">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Sign up</h1>
+          <label>user name</label>
+          <input type="name" placeholder="enter name" name="name"><br><br>
+          <label>Email</label>
+          <input type="email" placeholder="enter email id" name="id"><br><br>
+          <labe>password</label>
+          <input type="password" placeholder="enter password" name="pwd"><br><br>
+          <label>Gender:</label><br>
+          <label>Male:</label>
+          <input type="radio" name="Gender">
+          <label>Female:</label>
+          <input type="radio" name="Gender"><br><br>
+          <input type="submit" value="signup">
+        </div>
+      </div>
+          </form>
+      <form action="/login" method="post">
+      <div class="col-md-6">
+      <h1>Login</h1>
+      <p style="color:red">#{err}</p>
+      <label>USer name</label>
+      <input type="name" placeholder="enter name" name="a">
+      <br>
+      <br>
+      <label>password</label>
+      <input type="password" placeholder="enter password" name="b">
+      <br>
+      <br>
+      <input type="submit" value="login">
+      </div>
+    </form>
+    </div>
+   </body>
+</html>           

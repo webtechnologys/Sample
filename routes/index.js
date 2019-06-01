@@ -31,6 +31,13 @@ router.post('/form', function(req,res){
   	res.redirect('/home');
   });
 });
+router.post('/remove',function(req,res){
+  var id=req.body.no;
+  console.log(id);
+  form.remove({"_id":id},function(err,docs){
+  	res.send(docs);
+  });
+});
 
 router.post('/signup',function (req,res) {
 	var data={

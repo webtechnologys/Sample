@@ -74,6 +74,7 @@ html(lang='en')
                 th Last Name
                 th Email
                 th Mobile
+                th Action
             tbody
               each member in data
                 tr 
@@ -81,6 +82,10 @@ html(lang='en')
                   td #{member.lastName}
                   td #{member.email}
                   td #{member.telephone}
+                  td
+
+                    button.btn.btn-info Edit
+                    button(value=member._id style="margin-left:10px").btn.btn-danger.delete Remove
     script(src='https://code.jquery.com/jquery-3.3.1.js')
     script(src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
     script(src='https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js')
@@ -90,3 +95,4 @@ html(lang='en')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js')
     script(src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js')
     script(src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js')
+    script(src="javascripts/edit.js")

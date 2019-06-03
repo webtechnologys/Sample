@@ -16,30 +16,54 @@ router.get('/home', function(req, res)
 		console.log(docs);
 		res.locals.data=docs;
 res.render('home');
+
+
+
+});
+});
+router.post('/edit',function(req,res){
+	var id=req.body.y;
+	//console.log(id);
+	form.find({"_id":id},function(err,docs){
+		//console.log(docs)
+		res.send(docs);
 	});
+});
+router.post('/update',function(req,res){
+	var data={
+		firstName:req.body.firstName,
+		lastName:req.body.lastName,
+		email : req.body.email,
+		telephone : req.body.telephone,
+	}
+	form.update({"_id":req.body.id},{$set:data},function(err,docs){
+		res.redirect('/home');
+	});
+
 });
 //Form
 router.post('/form', function(req,res){
-  var data = {
-  	firstName : req.body.firstName,
-	lastName : req.body.lastName,
-	email : req.body.email,
-	telephone : req.body.telephone
-  }
-  form.insert(data, function(err,docs){
-  	console.log(docs);
-  	res.redirect('/home');
-  });
+	var data = {
+		firstName : req.body.firstName,  
+		lastName : req.body.lastName,
+		email : req.body.email,
+		telephone : req.body.telephone
+		}
+	form.insert(data, function(err,docs){
+		console.log(docs);
+		res.redirect('/home');
+	});
 });
 router.post('/remove',function(req,res){
-  var id=req.body.no;
-  console.log(id);
-  form.remove({"_id":id},function(err,docs){
-  	res.send(docs);
-  });
+	var id=req.body.no;
+	console.log(id);
+	form.remove({"_id":id},function(err,docs){
+		res.send(docs);
+	});
 });
 
 router.post('/signup',function (req,res) {
+	
 	var data={
 		name:req.body.name,
 		email:req.body.id,

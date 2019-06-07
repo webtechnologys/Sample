@@ -24,8 +24,11 @@ html(lang='en')
           a(data-toggle='pill', href='#form') Form
         li
           a(data-toggle='pill', href='#list') List
+        li
+          a( href='/logout') LogOut
       .tab-content
         #form.tab-pane.fade.in.active
+          b #{user.name}
           .container
             .push
             .row
@@ -40,7 +43,7 @@ html(lang='en')
                 .alert.alert-danger.hide(role='alert')
                   strong Oh snap!
                   |  Change a few things up and try submitting again.
-                form(name='contact', action='/form', method='post')
+                form(name='contact', action='/form', method='post',enctype="multipart/form-data")
                   fieldset
                     legend Contact Information
                     .form-group
@@ -48,6 +51,12 @@ html(lang='en')
                         i.glyphicon.glyphicon-user
                         |  First Name *
                       input#firstName.form-control.name(autofocus='', type='text', name='firstName', placeholder='First Name *', pattern='^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$', title='Enter first name (e.g. John)', required='')
+                    .form-group
+                      label
+                        i.glyphicon.glyphicon-user
+                        |  upload image *
+                      input.form-control(type='file', name='image', required='')
+                        
                     .form-group
                       label.hide(for='lastName')
                         i.glyphicon.glyphicon-user
@@ -70,6 +79,7 @@ html(lang='en')
           table#example.display(style='width:100%')
             thead
               tr
+                th Profile
                 th First Name
                 th Last Name
                 th Email
@@ -78,6 +88,8 @@ html(lang='en')
             tbody
               each member in data
                 tr 
+                  td 
+                    img(src="images/"+member.img, height="50", width="50")
                   td #{member.firstName}
                   td #{member.lastName}
                   td #{member.email}
